@@ -1,13 +1,13 @@
 import Footer from "../components/Footer";
-import HomePage from '@/src/components/Home/Homepage'
+import HomePageComponent from '@/src/components/Home/HomePageComponent'
 
-const CategoryPage = ({ params }: { params: { slug: string } }) => {
+const Home = () => {
   return (
     <article className="mt-6 flex gap-5 flex-col text-white px-5 sm:px-10 md:px-24 sxl:px-32">
-      <HomePage parmy={params} />
+      <HomePageComponent />
       <Footer />
     </article>
   );
 };
 
-export default CategoryPage;
+export default Home;

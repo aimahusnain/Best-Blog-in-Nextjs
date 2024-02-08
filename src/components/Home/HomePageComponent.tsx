@@ -5,16 +5,17 @@ import BlogLayoutThree from "@/src/components/Blog/BlogLayoutThree";
 import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import SocialMediaIcons from "../Footer/SocialMediaIcons";
-import FeaturedPostsDesign from "../Home/FeaturedPostsDesign";
+import FeaturedPostsDesign from "./FeaturedPostsDesign";
 import Categories from "../Blog/Categories for Home";
 import { slug } from "github-slugger";
 
-const SearchPage = ({ parmy }: { parmy: any }) => {
+const HomePageComponent = () => {
   const router: any = useRouter();
   const { q } = router.query || { q: "" };
   const [searchTerm, setSearchTerm] = useState(q);
   const [isTyping, setIsTyping] = useState(false);
   const [allCategories, setAllCategories] = useState<string[]>(["all"]);
+  const paths: { slug: string }[] = [{ slug: "all" }];
 
   const handleSearchInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
@@ -28,15 +29,13 @@ const SearchPage = ({ parmy }: { parmy: any }) => {
         blog.tags.forEach((tag: string) => {
           const slugified = slug(tag);
           categoriesSet.add(slugified);
+          paths.push({ slug: slugified });
         });
       }
     });
     return [...Array.from(categoriesSet)];
   };
-  
-  useEffect(() => {
-    setAllCategories(getUniqueCategories(allBlogs));
-  });
+
 
   const filteredBlogs = allBlogs.filter((blog) => {
     const normalizedTitle = blog.title.toLowerCase();
@@ -55,7 +54,7 @@ const SearchPage = ({ parmy }: { parmy: any }) => {
 
   return (
     <div>
-      <Categories categories={allCategories} currentSlug={parmy.slug} />
+      <Categories categories={getUniqueCategories(allBlogs)} currentSlug="all" />
 
       <div className="grid grid-cols-1 items-center gap-5 pt-2 text-sm md:grid-cols-2">
         <div className="relative col-span-1">
@@ -90,4 +89,4 @@ const SearchPage = ({ parmy }: { parmy: any }) => {
   );
 };
 
-export default SearchPage;
+export default HomePageComponent;

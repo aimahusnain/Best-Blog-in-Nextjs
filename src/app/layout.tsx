@@ -60,12 +60,10 @@ export default function RootLayout({
         <NextThemeProvider>
           <Header />
           <Providers>
-            <Suspense fallback={<div>Loading...</div>}>
               <Loading>
                 {children}
                 <ToastContainer />
               </Loading>
-            </Suspense>
           </Providers>
         </NextThemeProvider>
       </body>

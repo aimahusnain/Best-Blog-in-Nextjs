@@ -1,8 +1,6 @@
-// categories/[slug].tsx
 import { allBlogs, Blog } from "@/.contentlayer/generated";
 import Search from "@/src/components/Blog/search";
 import Footer from "@/src/components/Footer";
-import FeaturedPostsDesign from "@/src/components/Home/FeaturedPostsDesign";
 import GithubSlugger from "github-slugger";
 
 const slugger = new GithubSlugger();

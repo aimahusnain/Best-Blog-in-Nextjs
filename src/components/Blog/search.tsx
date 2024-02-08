@@ -12,9 +12,9 @@ import FeaturedPostsDesign from "../Home/FeaturedPostsDesign";
 const SearchPage = ({ parmy }: { parmy: any }) => {
   const router: any = useRouter();
   const { q } = router.query || { q: "" };
-  const allCategories: string[] = ["all"];
   const [searchTerm, setSearchTerm] = useState(q);
   const [isTyping, setIsTyping] = useState(false); // New state to track typing status
+  const paths: { slug: string }[] = [{ slug: "all" }];
 
   const handleSearchInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
@@ -30,9 +30,6 @@ const SearchPage = ({ parmy }: { parmy: any }) => {
       blog.tags &&
       blog.tags.some((tag: string) => {
         const slugified = slug(tag);
-        if (!allCategories.includes(slugified)) {
-          allCategories.push(slugified);
-        }
       
         if (
           parmy.slug === "all" &&
@@ -46,6 +43,20 @@ const SearchPage = ({ parmy }: { parmy: any }) => {
     );
   });
 
+    const getUniqueCategories = (blogs: any[]) => {
+    const categoriesSet = new Set<string>();
+    blogs.forEach((blog) => {
+      if (blog.tags) {
+        blog.tags.forEach((tag: string) => {
+          const slugified = slug(tag);
+          categoriesSet.add(slugified);
+          paths.push({ slug: slugified });
+        });
+      }
+    });
+    return [...Array.from(categoriesSet)];
+  };
+
   const extraClassnames: { [key: string]: string } = {
     all: "mr-5",
   };
@@ -58,7 +69,7 @@ const SearchPage = ({ parmy }: { parmy: any }) => {
   return (
     <div>
       <Categories
-        categories={allCategories}
+        categories={getUniqueCategories(allBlogs)}
         currentSlug={parmy.slug}
         extraClassnames={extraClassnames}
       />
