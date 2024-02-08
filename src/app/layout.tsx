@@ -54,7 +54,7 @@ export default function RootLayout({
       <body
         className={cx(
           "font-EuclidCircularB",
-          "font-mr !bg-black dark:bg-black text-white"
+          "font-mr"
         )}
       >
         <NextThemeProvider>

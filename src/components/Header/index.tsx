@@ -13,6 +13,7 @@ import {
 import React from "react";
 import Logo from "./Logo";
 import { Button } from "@nextui-org/button";
+import ThemeToggler from "./ThemeToggler";
 
 export interface MenuItem {
   id: string;
@@ -58,7 +59,7 @@ export default function Header() {
         <NavbarBrand>
           <Logo />
         </NavbarBrand>
-        {/* {mymenuitems.map((item: MenuItem, index: number) => (
+        {mymenuitems.map((item: MenuItem, index: number) => (
           <NavbarItem key={index}>
             <Link
               href={item.path}
@@ -70,37 +71,34 @@ export default function Header() {
             </Link>
           </NavbarItem>
         ))}
-        <Link aria-label="get the app" href="/">
-          <Button className="bg-primary font-bold hover:bg-primary/90 text-black">
-            Get The App
-          </Button>
-        </Link> */}
-      </NavbarContent>
+        <ThemeToggler />
 
-      <NavbarMenu>
-      <div
-          className="flex !items-center text-left justify-center gap-10 h-fit text-3xl flex-col"
-      
-      >
-        {mymenuitems.map((item: MenuItem, index: number) => (
-          <NavbarMenuItem
-          key={index}
-          >
-            <Link
-              href={item.path}
-              color="foreground"
-              size="lg"
-              className="font-semibold"
-              >
-              {item.label}
-            </Link>
-          </NavbarMenuItem>
-        ))}
         <Link aria-label="get the app" href="/">
           <Button className="bg-primary font-bold hover:bg-primary/90 text-black">
             Get The App
           </Button>
         </Link>
+      </NavbarContent>
+
+      <NavbarMenu>
+        <div className="flex !items-center text-left justify-center gap-10 h-fit text-3xl flex-col">
+          {mymenuitems.map((item: MenuItem, index: number) => (
+            <NavbarMenuItem key={index}>
+              <Link
+                href={item.path}
+                color="foreground"
+                size="lg"
+                className="font-semibold"
+              >
+                {item.label}
+              </Link>
+            </NavbarMenuItem>
+          ))}
+          <Link aria-label="get the app" href="/">
+            <Button className="bg-primary font-bold hover:bg-primary/90 text-black">
+              Get The App
+            </Button>
+          </Link>
         </div>
       </NavbarMenu>
     </Navbar>
