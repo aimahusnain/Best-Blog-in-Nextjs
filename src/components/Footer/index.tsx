@@ -26,7 +26,7 @@ const Footer = () => {
       </div>
 
       <p className="text-black/40 dark:text-white/40 text-xs">
-        Copyright © 2014-2024 Alight Motion All rights reserved. |{" "}
+        Copyright © 2014-2024 TechSavvyInsights All rights reserved. |{" "}
         <Link
           aria-label="privacy policy"
           href="/privacy-policy"

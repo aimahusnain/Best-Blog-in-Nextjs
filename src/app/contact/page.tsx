@@ -94,7 +94,7 @@ const Create: NextPage = () => {
           <div className="text-center">
             <h2 className="text-3xl font-bold mb-6">Contact Us</h2>
             <p>
-              If you want to Contact Alight Motion administrator, Send your
+              If you want to Contact TechSavvyInsights administrator, Send your
               suggestions, Report website bugs, or Submit your apps, Please
               contact us using the following way:
             </p>

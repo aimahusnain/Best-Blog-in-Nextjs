@@ -1,7 +1,7 @@
 export default function manifest() {
     return {
-      name: 'Alight Motion',
-      short_name: 'Alight Motion',
+      name: 'TechSavvyInsights',
+      short_name: 'TechSavvy',
       description: 'Next.js App',
       start_url: '/',
       display: 'standalone',
