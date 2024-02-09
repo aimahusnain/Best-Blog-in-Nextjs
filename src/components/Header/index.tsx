@@ -23,14 +23,14 @@ export interface MenuItem {
 
 export const mymenuitems: MenuItem[] = [
   {
-    id: "home",
-    label: "Explore",
-    path: "/",
+    id: "about us",
+    label: "About Us",
+    path: "/about",
   },
   {
-    id: "articles",
-    label: "Articles",
-    path: "/categories/all",
+    id: "contact us",
+    label: "Contact Us",
+    path: "/contact",
   },
 ];
 
@@ -73,11 +73,6 @@ export default function Header() {
         ))}
         <ThemeToggler />
 
-        <Link aria-label="get the app" href="/">
-          <Button className="bg-primary font-bold hover:bg-primary/90 text-black">
-            Get The App
-          </Button>
-        </Link>
       </NavbarContent>
 
       <NavbarMenu>
@@ -94,11 +89,8 @@ export default function Header() {
               </Link>
             </NavbarMenuItem>
           ))}
-          <Link aria-label="get the app" href="/">
-            <Button className="bg-primary font-bold hover:bg-primary/90 text-black">
-              Get The App
-            </Button>
-          </Link>
+                  <ThemeToggler />
+
         </div>
       </NavbarMenu>
     </Navbar>

@@ -28,13 +28,13 @@ const Categories: React.FC<CategoriesProps> = ({
       className="max-w-full sm:mx-0 mx-10 md:mx-10"
     >
       <CarouselContent className="px-6">
-   <CarouselItem className="flex w-fit basis-auto">
-            <Category
-              key='All'
-              link='/'
-              name="All"
-              active={currentSlug === slug('All')}
-            />
+        <CarouselItem className="flex w-fit basis-auto">
+          <Category
+            key="All"
+            link="/"
+            name="All"
+            active={currentSlug === slug("All")}
+          />
         </CarouselItem>
         {categories.map((cat: any) => (
           <CarouselItem className="flex w-fit basis-auto">
@@ -46,7 +46,7 @@ const Categories: React.FC<CategoriesProps> = ({
             />
           </CarouselItem>
         ))}
-      </CarouselContent>  
+      </CarouselContent>
       <CarouselPrevious />
       <CarouselNext />
     </Carousel>

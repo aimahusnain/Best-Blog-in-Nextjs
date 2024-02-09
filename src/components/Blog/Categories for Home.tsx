@@ -14,10 +14,7 @@ interface CategoriesProps {
   currentSlug: any;
 }
 
-const Categories: React.FC<CategoriesProps> = ({
-  categories,
-  currentSlug,
-}) => {
+const Categories: React.FC<CategoriesProps> = ({ categories, currentSlug }) => {
   return (
     <Carousel
       opts={{
@@ -26,25 +23,24 @@ const Categories: React.FC<CategoriesProps> = ({
       className="max-w-full sm:mx-0 mx-10 md:mx-10"
     >
       <CarouselContent className="px-6">
-   <CarouselItem className="flex w-fit basis-auto">
-            <Category
-              key='All'
-              link='/'
-              name="All"
-              active={currentSlug === slug('All')}
-            />
+        <CarouselItem className="flex w-fit basis-auto">
+          <Category
+            key="All"
+            link="/"
+            name="All"
+            active={currentSlug === slug("All")}
+          />
         </CarouselItem>
         {categories.map((cat: any) => (
-      <CarouselItem className="flex w-fit basis-auto">
-          <Category
-            key={cat}
-            link={`/categories/${cat}`}
-            name={cat}
-            active={currentSlug === slug(cat)}
-          />
-                  </CarouselItem>
+          <CarouselItem className="flex w-fit basis-auto">
+            <Category
+              key={cat}
+              link={`/categories/${cat}`}
+              name={cat}
+              active={currentSlug === slug(cat)}
+            />
+          </CarouselItem>
         ))}
-
       </CarouselContent>
       <CarouselPrevious />
       <CarouselNext />

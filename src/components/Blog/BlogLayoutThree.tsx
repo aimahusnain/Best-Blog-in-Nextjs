@@ -5,7 +5,7 @@ import React from "react";
 
 const BlogLayoutThree = ({ blog }: {blog: any}) => {
   return (
-    <div className="group flex flex-col items-center text-light">
+    <div className="group flex flex-col items-center text-black dark:text-light">
       <Link aria-label="article image" href={blog.url} className="h-full rounded-3xl overflow-hidden">
         <Image
           src={blog.image.filePath.replace("../public", "")}

@@ -74,19 +74,15 @@ const SearchPage = ({ parmy }: { parmy: any }) => {
         extraClassnames={extraClassnames}
       />
 
-      <div className="flex flex-col">
-        <h1 className="capitalize mt-6 font-semibold text-2xl md:text-4xl lg:text-5xl">
-          {parmy.slug}
-        </h1>
-      </div>
-      <div className="grid grid-cols-1 items-center gap-5 pt-2 text-sm md:grid-cols-2">
+      <div className="grid grid-cols-1 items-center gap-5 sm:mt-2 mt-7 text-sm md:grid-cols-2">
         <div className="relative col-span-1">
           <input
             type="text"
             placeholder="Search articles…"
             value={searchTerm}
             onChange={handleSearchInputChange}
-            className="w-full rounded-full border focus:!border-primary border-slate-200 bg-slate-50 px-4 py-2 text-base focus:bg-transparent dark:border-neutral-800 dark:bg-neutral-800 dark:text-neutral-50 transition-all dark:placeholder:text-neutral-400 dark:hover:bg-neutral-950"
+            className="w-full rounded-full border focus:!border-primary border-slate-200 bg-slate-50 px-4 py-2 text-base focus:bg-transparent dark:border-neutral-800 dark:bg-neutral-800 
+            dark:text-neutral-50 text-slate-900 transition-all dark:placeholder:text-neutral-400 dark:hover:bg-neutral-950"
           />
         </div>
         <div className="col-span-1 flex flex-row flex-wrap gap-1 text-slate-600 dark:text-neutral-300 md:flex-nowrap justify-end">
